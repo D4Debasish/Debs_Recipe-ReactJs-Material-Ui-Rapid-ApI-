@@ -1,0 +1,29 @@
+.favorites__list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.favorite__box{
+    width: calc(30% - 20px);
+    box-sizing: border-box;
+    
+    object-fit: contain;
+    margin-top: 50px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #0c51e4;
+    text-decoration: none;
+    width: auto;
+    height: 374px;
+}
+.favorite__box:hover {
+    transform: translateY(-8px);
+  }

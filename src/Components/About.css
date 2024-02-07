@@ -1,0 +1,27 @@
+.about__main {
+    /* Your existing styles for larger screens */
+  
+    @media (max-width: 600px) {
+      /* Styles for small screens go here */
+      padding: 10px; /* Add some padding for better spacing on small screens */
+    }
+  
+    .acknowledgement {
+      /* Your existing styles for larger screens */
+  
+      @media (max-width: 600px) {
+        /* Styles for small screens go here */
+        text-align: center;
+      }
+    }
+  
+    img {
+      /* Your existing styles for larger screens */
+  
+      @media (max-width: 600px) {
+        /* Styles for small screens go here */
+        width: 100%; /* Make the image fill the width of the container on small screens */
+      }
+    }
+  }
+  
