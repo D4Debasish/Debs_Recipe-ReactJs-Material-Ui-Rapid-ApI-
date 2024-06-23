@@ -1,35 +1,66 @@
-import React,{useState} from 'react';
-import Box from './Box';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { Link } from 'react-router-dom';
-import './favourate.css'
+import React, { useState } from "react";
+import Box from "./Box";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Link } from "react-router-dom";
+import "./favourate.css";
+import Navbar from "./Navbar";
 
 const Favourite = ({ favorites, setFavorites }) => {
-
   const [seticon, setSeticon] = useState(false);
   const handleRemoveClick = (id) => {
-    setFavorites((prevFavorites) => prevFavorites.filter((favorite) => favorite.id !== id));
+    setFavorites((prevFavorites) =>
+      prevFavorites.filter((favorite) => favorite.id !== id)
+    );
   };
 
   return (
     <div className="favorites">
-      <h2 style={{color:'blueviolet'}}>YOUR FAVOURATE RECIPES ARE</h2>
+      <h2 style={{ color: "blueviolet" }}>YOUR FAVOURATE RECIPES ARE</h2>
       {favorites && favorites.length > 0 ? (
-        <div className="favorites__list" >
+        <div className="favorites__list">
           {favorites.map((favorite) => (
-            <div key={favorite.id} className="favorite__box" style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-              <Box title={favorite.title} img={favorite.img} seticon={seticon} setSeticon={setSeticon}  />
-              <Link to={`/recipe/${favorite.id}`} className="view-recipe-link" style={{textDecoration:'none',marginBottom:'20px' ,color:'red'}}>
-                  VIEW RECIPE
-                 </Link>
+            <div
+              key={favorite.id}
+              className="favorite__box"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                title={favorite.title}
+                img={favorite.img}
+                seticon={seticon}
+                setSeticon={setSeticon}
+              />
+              <Link
+                to={`/recipe/${favorite.id}`}
+                className="view-recipe-link"
+                style={{
+                  textDecoration: "none",
+                  marginBottom: "20px",
+                  color: "red",
+                }}
+              >
+                VIEW RECIPE
+              </Link>
               <button onClick={() => handleRemoveClick(favorite.id)}>
-                <DeleteIcon sx={{color:'red', }}/> 
+                <DeleteIcon sx={{ color: "red" }} />
               </button>
             </div>
           ))}
         </div>
       ) : (
-        <h2 style={{alignItems:'center', textAlign:'center', marginTop:'200px' }}>No favorites yet.... <br /> Add some recipes to your favorites!</h2>
+        <h2
+          style={{
+            alignItems: "center",
+            textAlign: "center",
+            marginTop: "200px",
+          }}
+        >
+          No favorites yet.... <br /> Add some recipes to your favorites!
+        </h2>
       )}
     </div>
   );

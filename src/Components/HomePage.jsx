@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from './Navbar';
-import Box from './Box';
-import { Button } from '@mui/material';
-import './Home.css';
-import { excersiseOptions, fetchData } from '../utils/fetchData';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import Box from "./Box";
+import { Button } from "@mui/material";
+import "./Home.css";
+import { excersiseOptions, fetchData } from "../utils/fetchData";
 
 const HomePage = ({ favorites, setFavorites }) => {
   const [datastore, setDatastore] = useState([]);
   const [numInitialCards, setNumInitialCards] = useState(6);
   const [numAdditionalCards, setNumAdditionalCards] = useState(3);
-  const [inputval, setInputval] = useState('');
+  const [inputval, setInputval] = useState("");
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState(false);
-  const [addingToFavorites, setAddingToFavorites] = useState(false); 
+  const [addingToFavorites, setAddingToFavorites] = useState(false);
   const [seticon, setSeticon] = useState(true);
 
   useEffect(() => {
@@ -21,13 +21,18 @@ const HomePage = ({ favorites, setFavorites }) => {
       setLoading(true);
 
       try {
-        const fetchedData = await fetchData('https://keto-diet.p.rapidapi.com/', excersiseOptions);
+        const fetchedData = await fetchData(
+          "https://keto-diet.p.rapidapi.com/",
+          excersiseOptions
+        );
 
-        const recipesArray = Array.isArray(fetchedData) ? fetchedData : [fetchedData];
+        const recipesArray = Array.isArray(fetchedData)
+          ? fetchedData
+          : [fetchedData];
 
         setDatastore(recipesArray);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
         setDatastore([]);
       } finally {
         setLoading(false);
@@ -42,12 +47,12 @@ const HomePage = ({ favorites, setFavorites }) => {
   };
 
   const handlechange = async () => {
-    setInputval('');
+    setInputval("");
 
     if (inputval) {
       try {
         const fetchedrec = await fetchData(
-          'https://keto-diet.p.rapidapi.com/',
+          "https://keto-diet.p.rapidapi.com/",
           excersiseOptions
         );
 
@@ -58,7 +63,7 @@ const HomePage = ({ favorites, setFavorites }) => {
         setSearch(true);
         setDatastore(searchedrecipe);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
         setDatastore([]);
       }
     }
@@ -68,14 +73,14 @@ const HomePage = ({ favorites, setFavorites }) => {
     const existingFavorite = favorites.find((fav) => fav.id === recipe.id);
 
     if (existingFavorite) {
-      setFavorites((prevFavorites) => prevFavorites.filter((fav) => fav.id !== recipe.id));
+      setFavorites((prevFavorites) =>
+        prevFavorites.filter((fav) => fav.id !== recipe.id)
+      );
     } else {
       setAddingToFavorites(true);
       setFavorites((prevFavorites) => [...prevFavorites, recipe]);
-     
-      
-        setAddingToFavorites(false); 
-       
+
+      setAddingToFavorites(false);
     }
   };
 
@@ -95,12 +100,27 @@ const HomePage = ({ favorites, setFavorites }) => {
                 <Box
                   title={one.recipe}
                   img={one.image}
-                  seticon={setSeticon} setSeticon={setSeticon} 
-                  onFavoriteClick={() => handleFavoriteClick({ id: one.id, title: one.recipe, img: one.image })}
+                  seticon={setSeticon}
+                  setSeticon={setSeticon}
+                  onFavoriteClick={() =>
+                    handleFavoriteClick({
+                      id: one.id,
+                      title: one.recipe,
+                      img: one.image,
+                    })
+                  }
                 />
                 {!addingToFavorites && (
-                  <Link to={`/recipe/${one.id}`} className="view-recipe-link" style={{textDecoration:'none', marginTop:200, color:'red'}}>
-                   VIEW RECIPE
+                  <Link
+                    to={`/recipe/${one.id}`}
+                    className="view-recipe-link"
+                    style={{
+                      textDecoration: "none",
+                      marginTop: 200,
+                      color: "red",
+                    }}
+                  >
+                    VIEW RECIPE
                   </Link>
                 )}
               </div>
@@ -114,14 +134,29 @@ const HomePage = ({ favorites, setFavorites }) => {
                 <Box
                   title={card.recipe}
                   img={card.image}
-                  seticon={setSeticon} setSeticon={setSeticon} 
-                  onFavoriteClick={() => handleFavoriteClick({ id: card.id, title: card.recipe, img: card.image })}
+                  seticon={setSeticon}
+                  setSeticon={setSeticon}
+                  onFavoriteClick={() =>
+                    handleFavoriteClick({
+                      id: card.id,
+                      title: card.recipe,
+                      img: card.image,
+                    })
+                  }
                 />
-               
+
                 {!addingToFavorites && (
-                  <Link to={`/recipe/${card.id}`} className="view-recipe-link" style={{textDecoration:'none', marginTop:200, color:'red'}}>
-                  VIEW RECIPE
-                 </Link>
+                  <Link
+                    to={`/recipe/${card.id}`}
+                    className="view-recipe-link"
+                    style={{
+                      textDecoration: "none",
+                      marginTop: 200,
+                      color: "darkblue",
+                    }}
+                  >
+                    VIEW RECIPE
+                  </Link>
                 )}
               </div>
             ))

@@ -42,15 +42,19 @@ const Navbar = ({ onsearch, inputval, setInputval, favorites }) => {
       {/* Hamburger */}
       <div className="hamburger-menu">
         <IconButton onClick={handleMenuToggle} color="inherit">
-          <MenuIcon />
+          <MenuIcon style={{ color: "white" }} />
         </IconButton>
         {showMenu && (
-          <div className="mobile-menu" style={{ marginRight: "1px" }}>
+          <div
+            className="mobile-menu"
+            style={{ marginRight: "1px", backgroundColor: "darkblue" }}
+          >
             <CloseIcon
               sx={{
                 marginLeft: "6px",
                 marginTop: "22px",
                 paddingBottom: "32px",
+                color: "white",
               }}
               onClick={closemenu}
             />
@@ -65,7 +69,7 @@ const Navbar = ({ onsearch, inputval, setInputval, favorites }) => {
 
             <Link to="/favourates" className="fbb">
               {" "}
-              <ShoppingBasketIcon /> ({favorites ? favorites.length : 0})
+              🪣 ({favorites ? favorites.length : 0})
             </Link>
           </div>
         )}
