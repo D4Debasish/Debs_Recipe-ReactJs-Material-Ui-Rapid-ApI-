@@ -9,9 +9,9 @@ import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 //After error 429 use useLocation for the favourate icon or 
 
-const Box = ({ id, title, date, img, onFavoriteClick }) => {
+const Box = ({ id, title, date, img, onFavoriteClick, seticon, setSeticon }) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  const [seticon, setSeticon] = useState(true);
+
 
   const handleFavoriteClick = () => {
     setIsFavorite((prevIsFavorite) => !prevIsFavorite);

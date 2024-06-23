@@ -1,54 +1,54 @@
-.nav__icon{
-    height: 90px;
+.nav__icon {
+  height: 90px;
 }
-.nav__main{
-    height: 85px;
-    background-color:rgb(218, 164, 72);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    /* margin-bottom: 70px; */
+.nav__main {
+  height: 85px;
+  background-color: rgb(15, 11, 94);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  /* margin-bottom: 70px; */
 }
-.inp{
-    outline: none;
-   width: 60vw;
-   height: 30px;
-   
-    padding-left: 1rem;
-    padding-right: 0.75rem;
+.inp {
+  outline: none;
+  width: 60vw;
+  height: 30px;
+
+  padding-left: 1rem;
+  padding-right: 0.75rem;
 }
-.abb{
-    text-decoration: none;
-    font-weight: bold;
-    color:white;
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    cursor: pointer;
+.abb {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 .abb:hover {
-    color: rgb(50, 126, 218); 
-    transform: scale(1.1); 
-  }
-
-.fbb{
-    text-decoration: none;
-    font-weight: bold;
-    color:white;
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    cursor: pointer;
-    margin-bottom: 5px;
+  color: rgb(50, 126, 218);
+  transform: scale(1.1);
 }
-.bask{
+
+.fbb {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+.bask {
   margin-top: 45px;
 }
 .fbb:hover {
-    color: rgb(50, 126, 218); 
-    transform: scale(1.1); 
-  }
+  color: rgb(50, 126, 218);
+  transform: scale(1.1);
+}
 
-  .hamburger-menu {
+.hamburger-menu {
   display: none;
 }
 
@@ -65,7 +65,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 85px; 
+    top: 85px;
     right: 0;
     background-color: rgb(218, 164, 72);
     padding: 10px;

@@ -10,7 +10,7 @@ const SearchInput = ({ onsearch, inputval, setInputval }) => {
         sx={{
           borderRadius: '10px',
           backgroundColor: 'white',
-          width: '200px', 
+          width: '160px', 
           border: 'none',
           marginBottom: '10px', 
           '@media (min-width: 600px)': {
@@ -23,7 +23,9 @@ const SearchInput = ({ onsearch, inputval, setInputval }) => {
         onChange={(e) => setInputval(e.target.value)}
       />
       <IconButton
-        sx={{ height: '40px', color: 'white' }}
+        sx={{ marginRight:'22px', height: '40px', color: 'white','@media (min-width: 600px)': {
+          width: '40px', marginLeft:'8px'
+        }}}
         color="primary"
         aria-label="search"
         component="span"

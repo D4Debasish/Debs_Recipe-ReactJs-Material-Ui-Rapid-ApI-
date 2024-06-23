@@ -14,6 +14,7 @@ const HomePage = ({ favorites, setFavorites }) => {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState(false);
   const [addingToFavorites, setAddingToFavorites] = useState(false); 
+  const [seticon, setSeticon] = useState(true);
 
   useEffect(() => {
     const fetchDataAsync = async () => {
@@ -90,10 +91,11 @@ const HomePage = ({ favorites, setFavorites }) => {
         <div className="home__main">
           {search ? (
             datastore.map((one, index) => (
-              <div  className="home__box">
+              <div key={index} className="home__box">
                 <Box
                   title={one.recipe}
                   img={one.image}
+                  seticon={setSeticon} setSeticon={setSeticon} 
                   onFavoriteClick={() => handleFavoriteClick({ id: one.id, title: one.recipe, img: one.image })}
                 />
                 {!addingToFavorites && (
@@ -112,6 +114,7 @@ const HomePage = ({ favorites, setFavorites }) => {
                 <Box
                   title={card.recipe}
                   img={card.image}
+                  seticon={setSeticon} setSeticon={setSeticon} 
                   onFavoriteClick={() => handleFavoriteClick({ id: card.id, title: card.recipe, img: card.image })}
                 />
                

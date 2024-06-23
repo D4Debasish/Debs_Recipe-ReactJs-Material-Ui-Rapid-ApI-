@@ -1,10 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Box from './Box';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
 import './favourate.css'
 
 const Favourite = ({ favorites, setFavorites }) => {
+
+  const [seticon, setSeticon] = useState(false);
   const handleRemoveClick = (id) => {
     setFavorites((prevFavorites) => prevFavorites.filter((favorite) => favorite.id !== id));
   };
@@ -16,7 +18,7 @@ const Favourite = ({ favorites, setFavorites }) => {
         <div className="favorites__list" >
           {favorites.map((favorite) => (
             <div key={favorite.id} className="favorite__box" style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
-              <Box title={favorite.title} img={favorite.img}  />
+              <Box title={favorite.title} img={favorite.img} seticon={seticon} setSeticon={setSeticon}  />
               <Link to={`/recipe/${favorite.id}`} className="view-recipe-link" style={{textDecoration:'none',marginBottom:'20px' ,color:'red'}}>
                   VIEW RECIPE
                  </Link>
